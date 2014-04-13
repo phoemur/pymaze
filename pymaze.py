@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 # Written by phoemur - dec/2013
-# Thanks to Joe Wingbermuehle whoose maze generator ( https://raw.github.com/joewing/maze ) i was based on
+# Thanks to Joe Wingbermuehle whoose maze generator
+# ( https://raw.github.com/joewing/maze ) I was based on
 #
 
 import random
@@ -116,9 +117,11 @@ def display_ball(y, x):
 
 def winner(counter):
     stdscr.clear()
-    stdscr.addstr(
-        'Congratulations!!!\nYou won with {} moves\n\nPress any key for the next fase or Q to exit'.format(counter),
-        curses.A_BOLD)
+    stdscr.addstr('''
+        Congratulations!!!\nYou won with {} moves\n\n
+        Press any key for the next fase or Q to exit
+        '''.format(counter),
+                  curses.A_BOLD)
     stdscr.refresh()
     c = stdscr.getch()
     if chr(c).upper() == 'Q':
@@ -209,11 +212,15 @@ if __name__ == '__main__':
     curses.curs_set(False)
     stdscr.keypad(True)
 
-    while width < curses.tigetnum('cols') and height + 5 < curses.tigetnum('lines'):
+    cols = curses.tigetnum('cols')
+    lines = curses.tigetnum('lines')
+    while width < cols and height + 5 < lines:
         curses.wrapper(begin)
         width += 10
         height += 6
 
     curses.endwin()
-    print(
-        "\nCongratulations, your screen is smaller than your skill\n\rFind a bigger screen to continue\n")
+    print("""
+        \nCongratulations, your screen is smaller than your skill
+        \n\rFind a bigger screen to continue\n
+        """)
