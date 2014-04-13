@@ -19,8 +19,6 @@ height = 23
 maze = dict()
 
 # Initialize the maze.
-
-
 def init_maze():
     for x in range(0, width):
         maze[x] = dict()
@@ -28,8 +26,6 @@ def init_maze():
             maze[x][y] = 1
 
 # Carve the maze starting at x, y.
-
-
 def carve_maze(x, y):
     dir = random.randint(0, 3)
     count = 0
@@ -57,8 +53,6 @@ def carve_maze(x, y):
         dir = (dir + 1) % 4
 
 # Generate the maze.
-
-
 def generate_maze():
     random.seed()
     maze[1][1] = 0
@@ -67,8 +61,6 @@ def generate_maze():
     maze[width - 2][height - 1] = 0
 
 # Display the maze.
-
-
 def display_maze():
     stdscr.clear()
     stdscr.move(0, 0)
@@ -82,8 +74,6 @@ def display_maze():
         stdscr.refresh()
 
 # Position Info
-
-
 def display_info(a, b, counter):
     stdscr.addstr(
         height + 1,
@@ -106,15 +96,11 @@ def display_info(a, b, counter):
     stdscr.refresh()
 
 # Display the Ball
-
-
 def display_ball(y, x):
     stdscr.addstr(y, x, "OO", curses.color_pair(2))
     stdscr.refresh()
 
 # Winner Funcion
-
-
 def winner(counter):
     stdscr.clear()
     stdscr.addstr('''
@@ -128,8 +114,6 @@ def winner(counter):
         sys.exit(0)
 
 # Mainloop
-
-
 def mainloop():
     # Movement Variables
     x = 1
